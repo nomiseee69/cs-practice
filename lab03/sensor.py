@@ -5,7 +5,7 @@ col_error=0
 up_porog=0
 sum_temp=0.0
 itog_stat=0
-max_temp = None
+max_temp =-10000000000000
 
 for i in range(col_zapis):
     line= input()
@@ -22,11 +22,13 @@ for i in range(col_zapis):
 
         if max_temp is None or temp > max_temp:
             max_temp = temp
-
-sred_temp=sum_temp/ itog_stat
+if itog_stat ==0:
+    sred_temp=0.0
+else:
+    sred_temp=sum_temp/ itog_stat
 
 print(col_zapis)
 print(col_error)
 print(up_porog)
-print(f"{max_temp:.1f}")  
-print(f"{sred_temp:.1f}") 
+print(f"{(max_temp):.1f}")
+print(f"{sred_temp:.1f}")
