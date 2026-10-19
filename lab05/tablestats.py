@@ -37,3 +37,9 @@ def total_minutes(rows, kind):
     if not has_kind:
         return 0.0
     return round(total, 1)
+
+def to_csv(counts):
+    result = ["тип,количество"]
+    for kind in sorted(counts.keys()):
+        result.append(f"{kind},{counts[kind]}")
+    return "\n".join(result) + "\n"

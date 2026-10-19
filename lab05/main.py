@@ -1,10 +1,22 @@
 import tablestats
 
-with open('events-small.csv', encoding='utf-8') as table:
-    row = tablestats.read_rows(table)
+def main():
+    file_name = input().strip()
+    
+    with open(file_name, encoding="utf-8") as table:
+        rows = tablestats.read_rows(table)
+        
+    counts = tablestats.count_types(rows)
+    unique_types_count = len(counts)
+    error_minutes = tablestats.total_minutes(rows, "ошибка")
+    
+    print(len(rows))
+    print(unique_types_count)
+    print(error_minutes)
+    
+    summary_csv = tablestats.to_csv(counts)
+    with open("summary.csv", "w", encoding="utf-8") as out:
+        out.write(summary_csv)
 
-with open('events.csv', encoding='utf-8') as table1:
-    row1 = tablestats.read_rows(table)
-
-print(row)
-print(row1)
+if __name__ == "__main__":
+    main()
