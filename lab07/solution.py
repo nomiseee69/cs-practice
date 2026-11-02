@@ -1,7 +1,6 @@
 import numpy as np
 
 def reshape_rows(values, width):
-    # Добавляем проверку на пустой список values
     if not values or len(values) % width != 0:
         return []
     arr = np.array(values, dtype=float).reshape(-1, width)
